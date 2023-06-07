@@ -171,3 +171,6 @@ nav > ul > li:first-child > a{
     padding: 20px 10px;
     
 }
+input[type=radio]{
+display: none;
+}
