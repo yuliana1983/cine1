@@ -1,18 +1,29 @@
-/* configuracion*/
-@import url();
+/* configuracion */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
 :root{
     --colorHeader:#000000;
     --fuente:'Roboto', sans-serif;
     --colorFooter:#3b0505;
 }
+
+
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family:var(--fuente);
-    text-decoration: none;
+    text-decoration: none;
 
 }
+
+html{
+    overflow-x: hidden;
+    max-width: 100%;
+    line-height: 1.15;
+    -webkit-text-size-adjust: 100%;
+}
+
 header{
     background-color:var(--colorHeader);
     width: 100%;
@@ -146,7 +157,6 @@ nav ul li ul li a:hover{
 }
 
 
-
 nav > ul > li:first-child > a{
     background-color:#3b0505;
 }
@@ -155,22 +165,92 @@ nav > ul > li:first-child > a{
     text-align: center;
     margin-top: 250px;
     font-family: var(--fuente);
-    font-size:3.5rem ;
-    color: #0e0d0d;
+    font-size: 3.5rem;
+    color: #000000;
 }
 
 /* slider */
 
-.container_slider{
+.container__slider{
     max-width: 800px;
     height: 400px;
     margin: auto;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 20px 10px;
-    
+    padding: 20px 20px;
 }
+
 input[type=radio]{
-display: none;
+    display: none;
 }
+
+.container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform-style: preserve-3d;
+}
+
+.cards{
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.card{
+    position: absolute;
+    width: 70%;
+    height: 100%;
+    left: 0;
+    right: 0;
+    cursor: pointer;
+    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    margin: auto;
+}
+
+img{
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    -o-object-fit: cover;
+    object-fit: cover;
+}
+
+#item-1:checked ~ .cards
+#selector-3,
+#item-2:checked ~ .cards
+#selector-1,
+#item-3:checked ~ .cards
+#selector-2{
+    transform: translateX(-40%) scale(0.8);
+    opacity: 0.6;
+    z-index: 0;
+}
+
+/* translate positivo */
+#item-3:checked ~ .cards
+#selector-1,
+#item-1:checked ~ .cards
+#selector-2,
+#item-2:checked ~ .cards
+#selector-3{
+    transform: translateX(40%) scale(0.8);
+    opacity: 0.6;
+    z-index: 0;
+}
+
+#item-1:checked ~ .cards
+#selector-1,
+#item-2:checked ~ .cards
+#selector-2,
+#item-3:checked ~ .cards
+#selector-3{
+    transform: translateX(40) scale(1);
+    z-index: 1;
+}
+
+
+
